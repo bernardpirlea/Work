@@ -1,0 +1,16 @@
+{
+  "name": "App",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon --watch src app.js"
+  },
+  "dependencies": {
+    "ejs": "^2.7.2",
+    "express": "^3.21.2",
+    "nodemon": "^1.19.4",
+    "underscore": "^1.9.1"
+  }
+}
