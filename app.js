@@ -1,9 +1,12 @@
+var express = require("express")
+  , http    = require("http")
+  , path    = require("path");
 
-var app     = express();
+var app = express();
 
 // All environments
 app.set("port", 80);
-app.set("views", __dirname + "/views");
+app.set("views", __dirname + "/app/views");
 app.set("view engine", "ejs");
 app.use(express.favicon());
 app.use(express.logger("dev"));
@@ -15,9 +18,13 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.errorHandler());
 
-// App routes
-app.get("/"     , routes.index);
-app.get("/hello", routes.hello);
+/***************Mongodb configuratrion********************/
+var mongoose = require('mongoose');
+var configDB = require('./config/database.js');
+//configuration ===============================================================
+mongoose.connect(configDB.url); // connect to our database
+
+require('./config/routes.js')(app);
 
 // Run server
 http.createServer(app).listen(app.get("port"), function() {
