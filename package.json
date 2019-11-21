@@ -8,6 +8,7 @@
     "dev": "nodemon --watch src app.js"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "ejs": "^2.7.2",
     "express": "^3.21.2",
     "mongoose": "^5.7.12",

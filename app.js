@@ -22,8 +22,7 @@ app.use(express.errorHandler());
 var mongoose = require('mongoose');
 var configDB = require('./config/database.js');
 //configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
-
+mongoose.connect(configDB.url, { useNewUrlParser: true , dbName: 'shop'}, () => console.log("Connected to DB")); // connect to our database
 require('./config/routes.js')(app);
 
 // Run server

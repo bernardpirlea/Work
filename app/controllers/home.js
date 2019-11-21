@@ -1,12 +1,5 @@
 exports.index = function(req, res) {
-	res.render("index", { 
-		// Template data
-		title: "Express" 
-	});
-};
 
-
-exports.home = function(req, res) {
 	var _         = require("underscore");
 	var mdbClient = require('mongodb').MongoClient;
 	
@@ -14,7 +7,7 @@ exports.home = function(req, res) {
 		var collection = client.db("shop").collection('categories');
 		
 		collection.find().toArray(function(err, items) {
-			res.render("home", { 
+			res.render("index", { 
 				// Underscore.js lib
 				_     : _, 
 				
@@ -26,4 +19,22 @@ exports.home = function(req, res) {
 			client.close();
 		});
 	});
+};
+
+exports.home = async function(req, res) {
+	var _         = require("underscore");
+	const Categories = require("../models/Categories");
+
+	const categories = Categories.find({}, function(err, items) {
+        if (err)
+			res.send(err);
+		res.render("home", { 
+			// Underscore.js lib
+			_     : _, 
+				
+			// Template data
+			title : "Hello World!",
+			items : items
+		});
+    });;
 };
