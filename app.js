@@ -1,8 +1,10 @@
 var express = require("express")
   , http    = require("http")
-  , path    = require("path");
+  , path    = require("path")
+  , expressLayouts = require("express-ejs-layouts");
 
 var app = express();
+app.use(expressLayouts);
 
 // All environments
 app.set("port", 80);
@@ -18,11 +20,12 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.errorHandler());
 
+
 /***************Mongodb configuratrion********************/
 var mongoose = require('mongoose');
 var configDB = require('./config/database.js');
 //configuration ===============================================================
-mongoose.connect(configDB.url, { useNewUrlParser: true , dbName: 'shop'}, () => console.log("Connected to DB")); // connect to our database
+mongoose.connect(configDB.url, { useNewUrlParser: true , dbName: 'shop', useUnifiedTopology: true}, () => console.log("Connected to DB")); // connect to our database
 require('./config/routes.js')(app);
 
 // Run server
