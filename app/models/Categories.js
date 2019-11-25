@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
-const SubcategoriesSchema = mongoose.Schema({
-  "categories": {
-    "type": [
-      "Mixed"
-    ]
-  },
+const subsubCategoriesSchema = mongoose.Schema({
   "id": {
     "type": "String"
   },
@@ -29,13 +24,38 @@ const SubcategoriesSchema = mongoose.Schema({
   }
 });
 
+const subCategoriesSchema = mongoose.Schema({
+    "categories": [subsubCategoriesSchema],
+    "id": {
+      "type": "String"
+    },
+    "image": {
+      "type": "String"
+    },
+    "name": {
+      "type": "String"
+    },
+    "page_description": {
+      "type": "String"
+    },
+    "page_title": {
+      "type": "String"
+    },
+    "parent_category_id": {
+      "type": "String"
+    },
+    "c_showInMenu": {
+      "type": "Boolean"
+    }
+  });
+
 const CategoriesSchema = mongoose.Schema({
     "_id": {
       "$oid": {
         "type": "ObjectId"
       }
     },
-    "categories":  [SubcategoriesSchema],
+    "categories":  [subCategoriesSchema],
     
     "id": {
       "type": "String"
@@ -58,4 +78,3 @@ const CategoriesSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model("categories", CategoriesSchema, 'categories');
-
