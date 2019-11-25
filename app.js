@@ -17,7 +17,7 @@ app.use(express.methodOverride());
 app.use(express.cookieParser("61d333a8-6325-4506-96e7-a180035cc26f"));
 app.use(express.session());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.errorHandler());
 
 
