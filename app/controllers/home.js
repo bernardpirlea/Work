@@ -13,6 +13,7 @@ exports.index = function(req, res) {
 			// Template data
 			title : "Hello World!",
 			items : items,
+			mainCategory: 0,
 			categories : items
 		});
     });;

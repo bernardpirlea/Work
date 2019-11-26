@@ -1,4 +1,14 @@
-<div class="container pt-5">
+<%if (mainCategory) {%>
+<div class="container-fluid p-4 bg-light">
+	<div class = "row justify-content-center pt-5">
+		<div class = "col-12">
+			<h1><%= mainCategory.name %></h1>
+			<p><%= mainCategory.page_description %></p>
+		</div>
+	</div>
+</div>
+<% } %>
+<div class="container pt-2">
 	<% _.each(categories, function(subcategory) { %>
 	<div class="row justify-content-center pt-5">
 		<div class="col-8 ">

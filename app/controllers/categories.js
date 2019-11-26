@@ -19,6 +19,7 @@ exports.subcategories = async function(req, res) {
 				// Template data
 				title : "Subcategories",
 				items: categoriesHeader,
+				mainCategory: items,
 				categories : subcategories
 			});
 		});;
@@ -32,6 +33,7 @@ exports.subcategories = async function(req, res) {
 				if(subcategories[i].id == categoryChoice[1] + '-' + categoryChoice[2]) 
 					var sub = subcategories[i].categories;
 			}
+
 			
 			res.render("index", { 
 				// Underscore.js lib
@@ -40,6 +42,7 @@ exports.subcategories = async function(req, res) {
 				// Template data
 				title : "Subcategories",
 				items: categoriesHeader,
+				mainCategory: items,
 				categories : sub
 			});
 		});;
