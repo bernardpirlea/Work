@@ -30,10 +30,11 @@ exports.subcategories = async function(req, res) {
 				res.send(err);
 			var subcategories = items.categories;
 			for(var i = 0; i < subcategories.length; i++){
-				if(subcategories[i].id == categoryChoice[1] + '-' + categoryChoice[2]) 
+				if(subcategories[i].id == categoryChoice[1] + '-' + categoryChoice[2]) {
 					var sub = subcategories[i].categories;
+					var mainCategory = subcategories[i];
+				}
 			}
-
 			
 			res.render("index", { 
 				// Underscore.js lib
@@ -42,7 +43,7 @@ exports.subcategories = async function(req, res) {
 				// Template data
 				title : "Subcategories",
 				items: categoriesHeader,
-				mainCategory: items,
+				mainCategory: mainCategory,
 				categories : sub
 			});
 		});;

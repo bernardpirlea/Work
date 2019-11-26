@@ -7,8 +7,10 @@
 		</div>
 	</div>
 </div>
-<% } %>
-<div class="container pt-2">
+<% }%>
+
+
+<div class="container <% if(mainCategory){ %> pt-2 <%} else{ %> pt-5 <% }%>">
 	<% _.each(categories, function(subcategory) { %>
 	<div class="row justify-content-center pt-5">
 		<div class="col-8 ">
@@ -20,6 +22,7 @@
 					<h1><%= subcategory.name %></h1>
 					<p><%= subcategory.page_description %></p>
 				</div>
+				<a href="/<%= subcategory.id.replace(/-/g,'/') %>" class="btn btn-primary">See Products</a>
 			</div>
 		</div>
 	</div>
