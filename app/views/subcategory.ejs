@@ -1,0 +1,88 @@
+<div class="container pt-4">
+    <% if (products.length > 1){ %>
+    <% for( var i = 0; i < products.length - 1; i = i+2){ %>
+    <div class="row justify-content-center pt-5">
+        <div class="col-6">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-3">
+                        <img class="card-img" src="/images/<%= images.get(products[i].id)%>">
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body" >
+                            <h6 class="card-title" ><%= products[i]._id%></h6>
+                            <p class="card-text"><small><%= products[i].short_description%></small></p>
+                            <p class="card-text"><small>Price: <%= products[i].price%></small></p>
+                            <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 ">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-3">
+                        <img class="card-img" src="/images/<%= images.get(products[i+1].id)%>">
+                    </div>
+                    <div class="col-9 px-2 pt-1 ">
+                        <div class="card-body">
+                            <h6 class="card-title"><%= products[i+1].name%></h6>
+                            <p class="card-text"><small><%= products[i+1].short_description%></small></p>
+                            <p class="card-text"><small>Price: <%= products[i+1].price%></small> </p>
+                            <a href="#" class="btn btn-primary btn-sm ">Go somewhere</a>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <% if (products.length % 2 != 0){ %>
+    <div class="row justify-content-center pt-5">
+        <div class="col-6 ">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-3">
+                        <img class="card-img" src="/images/<%= images.get(products[products.length - 1].id)%>">
+                    </div>
+                    <div class="col-9 px-2 pt-1">
+                        <div class="card-body">
+                            <h6 class="card-title"><%= products[products.length - 1].name%></h6>
+                            <p class="card-text"><small><%= products[products.length - 1].short_description%></small></p>
+                            <p class="card-text"><small>Price: <%= products[products.length - 1].price%></small></p>
+                            <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <% } else{ %>
+    <div class="row justify-content-center pt-5">
+        <div class="col-6 ">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-3">
+                        <img class="card-img" src="/images/<%= images.get(products[0].id)%>">
+                    </div>
+                    <div class="col-9 px-2 pt-1">
+                        <div class="card-body">
+                            <h6 class="card-title" ><%= products[0].name%></h6>
+                            <p class="card-text"><small><%= products[0].short_description%></small></p>
+                            <p class="card-text" ><small>Price: <%= products[0].price%></small></p>
+                            <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <%}%>
+
+    </div> <!-- /container -->
+
+    

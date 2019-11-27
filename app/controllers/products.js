@@ -17,13 +17,12 @@ exports.displayAll = async function (req, res) {
         var images = new Map();
         products.forEach(element =>  {
                 element.image_groups.forEach(sube =>{
-                    if(sube.view_type == 'large' && sube.variation_value){
+                    if(sube.view_type == 'medium' && !images.has(element.id)){
                         images.set(element.id, sube.images[0].link);
                     }
                 });
-                
-            });
-        res.render("products", {
+        });
+        res.render("subcategory", {
             // Underscore.js lib
             _: _,
 
@@ -34,4 +33,34 @@ exports.displayAll = async function (req, res) {
             products: products
         });
     });
+};
+
+exports.productDetail = async function (req, res){
+    var _ = require("underscore");
+    const Categories = require("../models/Categories");
+    const Products = require("../models/Products");
+
+    const categoriesHeader = await Categories.find({});
+
+    const p = Products.findById(req.params.id, function (err, product){
+        
+        var image;
+        product.image_groups.forEach(element =>{
+            if(element.view_type == 'large'){
+                image = element.images[0].link;
+            }
+        });
+        
+        res.render("product", {
+            // Underscore.js lib
+            _: _,
+            
+            title: "Product",
+            items: categoriesHeader,
+            image: image,
+            product: product
+        });
+    });
+
+    
 };

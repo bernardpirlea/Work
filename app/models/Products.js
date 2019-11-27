@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 const ProductsSchema = mongoose.Schema({
-    "_id": {
-      "$oid": {
-        "type": "ObjectId"
-      }
-    },
+    
     "page_description": {
       "type": "String"
     },
