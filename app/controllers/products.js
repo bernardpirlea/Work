@@ -9,6 +9,9 @@ exports.displayAll = async function (req, res) {
         id = id + "-" + categoryChoice[i];
     }
 
+    categoryChoice.splice(0,1);
+	var breadcrumb = categoryChoice;
+
     const categoriesHeader = await Categories.find({});
 
     const prod = Products.find({primary_category_id: id}, function (err, products) {
@@ -29,6 +32,7 @@ exports.displayAll = async function (req, res) {
             // Template data
             title: "Products",
             items: categoriesHeader,
+            breadcrumb: breadcrumb,
             images: images,
             products: products
         });
@@ -51,12 +55,17 @@ exports.productDetail = async function (req, res){
             }
         });
         
+        var categoryChoice = product.primary_category_id;
+        var breadcrumb = categoryChoice.split("-");
+        breadcrumb.push(product._id);
+        
         res.render("product", {
             // Underscore.js lib
             _: _,
             
             title: "Product",
             items: categoriesHeader,
+            breadcrumb: breadcrumb,
             image: image,
             product: product
         });

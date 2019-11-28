@@ -6,8 +6,8 @@ var productsController = require("../app/controllers/products");
 module.exports = function (app) {
 
     app.get("/"    , homeController.index);
-    app.get("/mens", categoriesController.subcategories);
-    app.get("/womens", categoriesController.subcategories);
+    app.get("/mens", categoriesController.categories);
+    app.get("/womens", categoriesController.categories);
     app.get("/mens/clothing", categoriesController.subcategories);
     app.get("/mens/accessories", categoriesController.subcategories);
     app.get("/womens/clothing", categoriesController.subcategories);

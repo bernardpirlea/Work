@@ -1,6 +1,6 @@
 <%if (mainCategory) {%>
-<div class="container-fluid p-4 bg-light">
-	<div class = "row justify-content-center pt-5">
+<div class="container-fluid p-3 bg-light">
+	<div class = "row justify-content-center  pt-2">
 		<div class = "col-12">
 			<h1><%= mainCategory.name %></h1>
 			<p><%= mainCategory.page_description %></p>
@@ -12,7 +12,7 @@
 
 <div class="container <% if(mainCategory){ %> pt-2 <%} else{ %> pt-5 <% }%>">
 	<% _.each(categories, function(subcategory) { %>
-	<div class="row justify-content-center pt-5">
+	<div class="row justify-content-center pt-3">
 		<div class="col-8 ">
 			<div class="card text-center">
 				<% if (subcategory.image) { %>
@@ -27,4 +27,4 @@
 		</div>
 	</div>
 	<% });%>
-</div> <!-- /container -->
+</div> 

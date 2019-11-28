@@ -17,4 +17,33 @@
             </div>
         </div>
     </nav>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb pt-5 mt-3 w-100">
+            <% var l = breadcrumb.length%>
+            <% breadcrumb.forEach(function(element, index, arr){%>
+                <% if(index == l-1) { %>
+                    <li class = "breadcrumb-item active" aria-current="page">
+                <%}else{%>
+                    <li class = "breadcrumb-item" >
+                <%}%>
+                    <%  var path = "";
+                        for( var i = 0 ; i <= index; i++){
+                            path = path + "/" + arr[i];
+                        if(index == 3){
+                            path = "/" + arr[3];
+                        }
+                    }
+                    %>
+                    <a href="<%= path%>">
+                        <% if(index == 3){ %>
+                            product
+                        <%}else{%>
+                            <%=element%>
+                        <%}%>
+                    </a>
+                </li>
+            <%})%>
+        </ol>
+    </nav>
 </header>
