@@ -30,7 +30,7 @@ exports.displayAll = async function (req, res) {
             _: _,
 
             // Template data
-            title: "Products",
+            title: "Shop",
             items: categoriesHeader,
             breadcrumb: breadcrumb,
             images: images,
@@ -63,13 +63,11 @@ exports.productDetail = async function (req, res){
             // Underscore.js lib
             _: _,
             
-            title: "Product",
+            title: "Shop",
             items: categoriesHeader,
             breadcrumb: breadcrumb,
             image: image,
             product: product
         });
     });
-
-    
 };

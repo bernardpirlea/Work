@@ -17,7 +17,7 @@
             </div>
         </div>
     </nav>
-
+    <% if(breadcrumb){%>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb pt-5 mt-3 w-100">
             <% var l = breadcrumb.length%>
@@ -46,4 +46,5 @@
             <%})%>
         </ol>
     </nav>
+    <%}%>
 </header>

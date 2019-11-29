@@ -6,8 +6,15 @@
         <div class="col-8">
             <h1><%= product.name%></h1>
             <p><%= product.page_description%></p>
-            <p>Price: <%= product.price%></p>
-            <a href="#" class="btn btn-primary btn-sm">Buy Now</a>
+            <p id = "price"> Price: <%= product.price%><p>
+            <p>
+                <select id = "currency" data-value ="<%= product.price %>">
+                        <option>USD</option>
+                        <option>RON</option>
+                        <option>GBP</option>
+                </select>  
+            </p>
+            <a href="#" class="btn btn-primary btn-sm">Buy Now</a>    
         </div>
     </div>
 </div>

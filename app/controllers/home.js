@@ -11,8 +11,9 @@ exports.index = function(req, res) {
 			_     : _, 
 				
 			// Template data
-			title : "Hello World!",
+			title : "Shop",
 			items : items,
+			breadcrumb: 0,
 			mainCategory: 0,
 			categories : items
 		});

@@ -1,6 +1,7 @@
 var homeController = require('../app/controllers/home');
 var categoriesController = require("../app/controllers/categories");
 var productsController = require("../app/controllers/products");
+var currencyController = require("../app/controllers/currency");
 //you can include all your controllers
 
 module.exports = function (app) {
@@ -31,4 +32,5 @@ module.exports = function (app) {
     app.get("/womens/accessories/scarves", productsController.displayAll);
     app.get("/womens/accessories/shoes", productsController.displayAll);
     app.get("/:id", productsController.productDetail);
+    app.post("/currency", currencyController.convert);
 }

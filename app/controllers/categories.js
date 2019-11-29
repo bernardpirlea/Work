@@ -23,7 +23,7 @@ exports.subcategories = async function (req, res) {
 			_: _,
 
 			// Template data
-			title: "Subcategories",
+			title: "Shop",
 			items: categoriesHeader,
 			breadcrumb: breadcrumb,
 			mainCategory: mainCategory,
@@ -50,7 +50,7 @@ exports.categories = async function (req, res) {
 			_: _,
 
 			// Template data
-			title: "Subcategories",
+			title: "Shop",
 			items: categoriesHeader,
 			breadcrumb: breadcrumb,
 			mainCategory: items,
