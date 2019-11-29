@@ -18,7 +18,9 @@ app.use(express.cookieParser("61d333a8-6325-4506-96e7-a180035cc26f"));
 app.use(express.session());
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.errorHandler());
-
+app.use((req,res) =>{
+  res.status(404).send('Unknown Request');
+});
 /***************Mongodb configuratrion********************/
 var mongoose = require('mongoose');
 var configDB = require('./config/database.js');
