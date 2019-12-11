@@ -3,14 +3,12 @@ exports.displayAll = async function (req, res) {
     const Categories = require("../models/Categories");
     const Products = require("../models/Products");
 
-    const categoryChoice = req.url.split("/");
-    var id = categoryChoice[1];
-    for(i = 2; i < categoryChoice.length; i++){
-        id = id + "-" + categoryChoice[i];
-    }
+    var id  = req.params.category + "-" + req.params.subcategory + "-" + req.params.select ;
 
-    categoryChoice.splice(0,1);
-	var breadcrumb = categoryChoice;
+    var breadcrumb = [];
+	breadcrumb.push(req.params.category);
+    breadcrumb.push(req.params.subcategory);
+    breadcrumb.push(req.params.select);
 
     const categoriesHeader = await Categories.find({});
 

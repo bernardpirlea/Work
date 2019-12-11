@@ -23,7 +23,7 @@ var mongoose = require('mongoose');
 var configDB = require('./config/database.js');
 //configuration ===============================================================
 mongoose.connect(configDB.url, { useNewUrlParser: true , dbName: 'shop', useUnifiedTopology: true}, () => console.log("Connected to DB")); // connect to our database
-require('./routes.js')(app);
+require('./app/routes')(app);
 
 
 // Run server

@@ -2,17 +2,18 @@ exports.subcategories = async function (req, res) {
 	var _ = require("underscore");
 	const Categories = require("../models/Categories");
 
-	const categoryChoice = req.url.split("/");
-	categoryChoice.splice(0,1);
-	var breadcrumb = categoryChoice;
+	var breadcrumb = [];
+	breadcrumb.push(req.params.category);
+	breadcrumb.push(req.params.subcategory);
+
 	const categoriesHeader = await Categories.find({});
 
-	const categories = Categories.findOne({ id: categoryChoice[0] }, function (err, items) {
+	const categories = Categories.findOne({ id: req.params.category}, function (err, items) {
 		if (err)
 			res.send(err);
 		var subcategories = items.categories;
 		for (var i = 0; i < subcategories.length; i++) {
-			if (subcategories[i].id == categoryChoice[0] + '-' + categoryChoice[1]) {
+			if (subcategories[i].id == req.params.category + '-' + req.params.subcategory) {
 				var sub = subcategories[i].categories;
 				var mainCategory = subcategories[i];
 			}
@@ -29,18 +30,17 @@ exports.subcategories = async function (req, res) {
 			mainCategory: mainCategory,
 			categories: sub
 		});
-	});;
+	});
 };
 exports.categories = async function (req, res) {
 	var _ = require("underscore");
 	const Categories = require("../models/Categories");
 
-	const categoryChoice = req.url.split("/");
-	categoryChoice.splice(0,1);
-	var breadcrumb = categoryChoice;
+	var breadcrumb = [];
+	breadcrumb.push(req.params.category);
 	const categoriesHeader = await Categories.find({});
 
-	const categories = Categories.findOne({ id: categoryChoice[0] }, function (err, items) {
+	const categories = Categories.findOne({ id: req.params.category }, function (err, items) {
 		if (err)
 			res.send(err);
 		var subcategories = items.categories;

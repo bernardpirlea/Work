@@ -13,7 +13,7 @@
                             <h6 class="card-title" ><%= products[i].name%></h6>
                             <p class="card-text"><small><%= products[i].short_description%></small></p>
                             <p class="card-text"><small>Price: <%= products[i].price%> USD</small></p>
-                            <a href="/<%= products[i]._id%>" class="btn btn-primary btn-sm">More Info</a>
+                            <a href="/product/<%= products[i]._id%>" class="btn btn-primary btn-sm">More Info</a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                             <h6 class="card-title"><%= products[i+1].name%></h6>
                             <p class="card-text"><small><%= products[i+1].short_description%></small></p>
                             <p class="card-text"><small>Price: <%= products[i+1].price%> USD</small> </p>
-                            <a href="/<%= products[i+1]._id%>" class="btn btn-primary btn-sm ">More Info</a>
+                            <a href="/product/<%= products[i+1]._id%>" class="btn btn-primary btn-sm ">More Info</a>
                         </div>
                        
                     </div>
@@ -52,7 +52,7 @@
                             <h6 class="card-title"><%= products[products.length - 1].name%></h6>
                             <p class="card-text"><small><%= products[products.length - 1].short_description%></small></p>
                             <p class="card-text"><small>Price: <%= products[products.length - 1].price%> USD</small></p>
-                            <a href="/<%= products[products.length - 1]._id%>" class="btn btn-primary btn-sm">More Info</a>
+                            <a href="/product/<%= products[products.length - 1]._id%>" class="btn btn-primary btn-sm">More Info</a>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                             <h6 class="card-title" ><%= products[0].name%></h6>
                             <p class="card-text"><small><%= products[0].short_description%></small></p>
                             <p class="card-text" ><small>Price: <%= products[0].price%> USD</small></p>
-                            <a href="/<%= products[0]._id%>" class="btn btn-primary btn-sm">More Info</a>
+                            <a href="/product/<%= products[0]._id%>" class="btn btn-primary btn-sm">More Info</a>
                         </div>
                     </div>
                 </div>
