@@ -8,12 +8,12 @@
     "dev": "nodemon --watch src app.js"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "ejs": "^2.7.2",
+    "bootstrap": "^4.4.1",
+    "ejs": "^2.7.4",
     "express": "^3.21.2",
     "express-ejs-layouts": "^2.5.0",
     "jquery": "^3.4.1",
-    "mongoose": "^5.7.12",
+    "mongoose": "^5.8.0",
     "nodemon": "^1.19.4",
     "request": "^2.88.0",
     "underscore": "^1.9.1"
