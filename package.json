@@ -17,5 +17,8 @@
     "nodemon": "^1.19.4",
     "request": "^2.88.0",
     "underscore": "^1.9.1"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
