@@ -6,8 +6,13 @@ var express = require("express")
 var app = express();
 app.use(expressLayouts);
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
 // All environments
-app.set("port", 80);
+app.set("port", port);
 app.set("views", __dirname + "/app/views");
 app.set("view engine", "ejs");
 app.use(express.favicon());
@@ -24,7 +29,6 @@ var configDB = require('./config/database.js');
 //configuration ===============================================================
 mongoose.connect(configDB.url, { useNewUrlParser: true , dbName: 'shop', useUnifiedTopology: true}, () => console.log("Connected to DB")); // connect to our database
 require('./app/routes')(app);
-
 
 // Run server
 http.createServer(app).listen(app.get("port"), function() {
