@@ -16,7 +16,7 @@
     "mongoose": "^5.8.0",
     "nodemon": "^1.19.4",
     "request": "^2.88.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   },
   "engines": {
     "node": "10.x"
